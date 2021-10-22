@@ -1,0 +1,54 @@
+
+//  progrm to check the reduntant parenthesis ------>>>>>>
+//  extra braces ----->>> if  prsent -->>>> yes otherwise  --->>> not ---------->>>
+
+//  example --->>>>  ((a+b)) --->>>>  yes there is a reduntant parathensis ------->>>>>>>>>
+// other example --->>>>>>  (a+(b+c)) --->>>>>  no there is no reduntant paranthesis is present -------->>>>>>>>>>>>
+
+//  let's see the code --------->>>>>>>>>
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int32_t main(){
+    string s ; cin>>s ; 
+    bool flag = false ;
+    stack<char> st ;
+    for(int i =0;i<s.size() ; i++){
+
+   if(s[i] == '+' || s[i] == '-' || s[i] == '/'  || s[i] == '*'){
+   
+   st.push(s[i]);
+
+}
+
+  else  if(s[i] == '('){
+
+        st.push(s[i]);
+    }
+
+    else if(s[i] == ')') {
+     
+     if(st.top() == '('){
+
+           flag = true ;
+     }
+
+      while(s[i] == '+' || s[i] == '-' || s[i] == '/'  || s[i] == '*'){
+          
+      st.pop();
+      }
+
+      
+      st.pop();
+    }
+
+}
+ cout<<flag;
+
+ return 0;
+}
+
+
+ 
