@@ -1,0 +1,29 @@
+//  program to find the longest substring without repeating character ------------>>>>>>>>>>
+//  example ------>>>>>>>>> "pwwekw" ==>>>>>.  ekw ------>>>>>  so the length is 3 ------>>>>>>>>  which is not repeating 
+//  it means in our substring which we are count in which every character should be diffrent 
+//  let see the code of this program ------>>>>>>>>>
+
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int32_t main(){
+  string s ; cin>>s ;
+  vector<int> dict(256 , -1);
+  int maxlne  = 0 ; int start = -1 ;
+
+  for(int i = 0 ; i<s.size() ; i++ ){
+       if(dict[s[i]] >start){
+           start = dict[s[i]];
+       }
+       dict[s[i]] = i ;
+       
+      maxlne = max(maxlne , i-start);
+
+  }  
+  cout<<maxlne<<endl;
+
+return 0;
+ }
