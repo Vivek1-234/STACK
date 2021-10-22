@@ -1,0 +1,39 @@
+//  program to Given an array of 0s and 1s , we may change up to k values from 0 to 1 
+//  return the lenght of the longest (continous )  subzarray that contains only 1s 
+
+//  example --->>>>>>>  [1,1,1,0,0,0,1,1,1,1,0]  k =2 
+//  output 6                         1 ,  1 , 1,1,1,1  -->>>>  6
+//  two zero we can replace form the one ---->>>>>>   
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+int n ; cin>>n ;
+int k ; cin>>k ;
+vector<int> a(n);
+for(auto &i : a ){
+    coin>>i;
+}
+int zercnt =0 , i =0 , ans =0;
+for(int j =0; j<n; j++){
+    if(a[j] ==0 ){
+        zercnt++;
+
+    }
+    while(zercnt >k ){
+        if(a[i] == 0 ){
+            zercnt--;
+        }
+        i++;
+    }
+    ans = max(ans , j -i+1);
+
+}
+cout<<a
+ns<<endl;
+
+
+return 0;
+ }
+ 
